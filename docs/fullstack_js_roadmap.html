@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Stack JavaScript Roadmap</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../shared/style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="header-eyebrow">MERN stack · Full-stack JS mastery</div>
+      <h1>Full-Stack JavaScript<br><span>Roadmap</span></h1>
+      <p>Six technologies, zero repeated concepts — each topic placed exactly once at the layer where it originates.
+        Click any card to copy a self-contained deep-dive prompt.</p>
+    </div>
+
+    <div class="tip-banner">
+      <div class="tip-icon">→</div>
+      <div><b>How to use:</b> Click any topic card to copy its prompt. Paste it into Claude to get the full interactive
+        explanation — without losing your place here. Topics that build on earlier phases reference them
+        explicitly so you always know where to look first.</div>
+    </div>
+
+    <div class="progress">
+      <span class="progress-label">JavaScript</span>
+      <div class="progress-segs">
+        <div class="progress-seg" style="background:#7F77DD"></div>
+        <div class="progress-seg" style="background:#1D9E75"></div>
+        <div class="progress-seg" style="background:#EF9F27"></div>
+        <div class="progress-seg" style="background:#D85A30"></div>
+        <div class="progress-seg" style="background:#378ADD"></div>
+        <div class="progress-seg" style="background:#888780"></div>
+      </div>
+      <span class="progress-label">Next.js</span>
+    </div>
+
+    <!-- ───────────────────────────── PHASE 1 — JAVASCRIPT ───────────────────────────── -->
+    <div class="phase p1">
+      <div class="phase-header" onclick="toggle(this)">
+        <span class="phase-badge">Phase 1</span>
+        <span class="phase-title">JavaScript Core</span>
+        <span class="phase-desc">The foundation every other phase is built on</span>
+        <span class="chevron open">▶</span>
+      </div>
+      <div class="phase-body open">
+        <div class="mern-note">
+          <b>Starting point:</b> This phase assumes you can write basic programs in any language.
+          Every concept here — closures, the event loop, promises, prototypes, modules — is defined
+          <em>once</em> in JavaScript. Node.js, Express, React, and Next.js all inherit from this
+          foundation; they will not repeat it.
+        </div>
+        <div class="topic-grid">
+
+          <div class="topic"
+            onclick="copy('Explain JavaScript scope, closures, and the execution context model from first principles. Cover: the global vs function vs block scope hierarchy, how the lexical environment is created at parse time (not runtime), why a closure is simply a function that captures its enclosing lexical scope, practical closure use-cases (factory functions, memoisation, module pattern, partial application), common closure pitfalls (loop variable capture — the classic var-in-for-loop bug), and how the JavaScript engine creates and links scope chains. Provide annotated code examples for each concept and a visual model of nested scopes and environment records.')">
+            <div class="topic-tag">Scope</div>
+            <div class="topic-name">Scope, Closures & Lexical Environment</div>
+            <div class="topic-detail">Lexical scope, function scope, block scope, closure factory pattern, loop pitfalls
+            </div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain the JavaScript event loop from the ground up — no runtime-specific details, just the language model. Cover: the call stack, the heap, the task queue (macrotask queue), and the microtask queue; how the event loop tick works (call stack drains → microtask queue drains fully → one macrotask runs → repeat); why microtasks (Promise callbacks, queueMicrotask) always run before the next macrotask (setTimeout, setInterval, I/O); the difference between setTimeout(fn, 0) and Promise.resolve().then(fn); and how to reason about interleaved async code execution order. Include at least three annotated examples where the output order is non-obvious, and a visual timeline diagram of a single event loop tick.')">
+            <div class="topic-tag">Runtime</div>
+            <div class="topic-name">Event Loop, Task Queue & Microtasks</div>
+            <div class="topic-detail">Call stack, task queue, microtask queue, execution order, tick anatomy</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain JavaScript\'s full async evolution: callbacks → Promises → async/await. Cover: why callbacks lead to inversion of control and callback hell; how a Promise is a state machine (pending → fulfilled/rejected) and what the executor function does synchronously vs asynchronously; Promise combinators — Promise.all, Promise.allSettled, Promise.race, Promise.any — with failure semantics for each; how async/await is syntactic sugar over Promises and what the compiler actually produces; error handling with try/catch in async functions vs .catch(); and how to avoid the most common async/await mistakes (missing await, sequential vs parallel execution, swallowed rejections). This is the definitive async reference for all later phases — Node.js, Express, and React build on top of this without redefining it.')">
+            <div class="topic-tag">Async</div>
+            <div class="topic-name">Callbacks → Promises → Async/Await</div>
+            <div class="topic-detail">Promise state machine, combinators (all/allSettled/race/any), async/await
+              compilation model</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain JavaScript prototypes, the prototype chain, and how class syntax maps onto them. Cover: how every object has an internal [[Prototype]] link; the prototype chain lookup algorithm; the difference between __proto__, Object.getPrototypeOf(), and the .prototype property on constructor functions; how ES6 class syntax is syntactic sugar over constructor functions and prototype assignment; prototype vs own property lookup; Object.create() for manual prototype delegation; and common prototype-based patterns (mixins, method sharing, monkey-patching built-ins). Include a diagram of the prototype chain for a class hierarchy and show the equivalent pre-ES6 code for every ES6 class example.')">
+            <div class="topic-tag">Objects</div>
+            <div class="topic-name">Prototypes, Prototype Chain & Classes</div>
+            <div class="topic-detail">[[Prototype]] chain, constructor functions, ES6 class desugaring, Object.create()
+            </div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain JavaScript modules — the full picture. Cover: why modules exist
+            (encapsulation, avoid global namespace pollution, explicit dependency graphs); CommonJS
+            (require/module.exports) — synchronous, runtime resolution, how it works in Node.js; ES Modules
+            (import/export) — static analysis at parse time, live bindings vs copied values, named vs default exports,
+            re-exports; the difference between static import and dynamic import() for code splitting; circular
+            dependency behaviour in CommonJS vs ESM; and the ` dual package" problem when shipping a library that
+            supports both. Include side-by-side code examples comparing CJS and ESM for the same module.')`>
+            <div class="topic-tag">Modules</div>
+            <div class="topic-name">Module Systems: CommonJS vs ESM</div>
+            <div class="topic-detail">require/module.exports, import/export, live bindings, dynamic import(), circular
+              deps</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain JavaScript\'s this keyword comprehensively. Cover: the four binding rules in priority order — default binding, implicit binding, explicit binding (call/apply/bind), and new binding; how arrow functions lexically capture this from the enclosing context and cannot be rebound; why method extraction breaks implicit binding and how to fix it; how class fields with arrow functions differ from prototype methods regarding this; and the common this-related bugs in callbacks, event listeners, and setTimeout. Provide one canonical example for each binding rule and a decision flowchart for determining what this refers to at any call site.')">
+            <div class="topic-tag">Context</div>
+            <div class="topic-name">this, Binding Rules & Arrow Functions</div>
+            <div class="topic-detail">Default / implicit / explicit / new binding, arrow function lexical this,
+              call/apply/bind</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain JavaScript memory management and garbage collection. Cover: the heap
+            vs stack allocation model; mark-and-sweep garbage collection — what "
+            reachable" means, why cycles are handled correctly; memory leaks — the four most common sources (accidental
+            globals, detached DOM nodes, closure references holding large objects, forgotten timers/event listeners)
+            with code examples for each; WeakMap and WeakSet as tools for holding references without preventing GC; and
+            how to diagnose memory leaks with browser devtools (heap snapshots, allocation timelines). Include
+            before/after code fixes for each leak pattern.')`>
+            <div class="topic-tag">Memory</div>
+            <div class="topic-name">Memory Management & Garbage Collection</div>
+            <div class="topic-detail">Heap vs stack, mark-and-sweep, WeakMap/WeakSet, four common memory leak patterns
+            </div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain JavaScript iterators, generators, and the iteration protocol. Cover: the iterator protocol (an object with a next() method returning {value, done}); the iterable protocol (Symbol.iterator); how for...of and spread use the iterable protocol; generator functions (function*) and the yield keyword — how execution suspends and resumes; lazy sequence generation with generators (infinite sequences, pagination cursors); async generators and for-await-of for async iteration; and practical use-cases: custom iterables, lazy pipelines, state machines. Include annotated examples for a range iterator, infinite Fibonacci generator, and async paginator.')">
+            <div class="topic-tag">Iteration</div>
+            <div class="topic-name">Iterators, Generators & Async Iteration</div>
+            <div class="topic-detail">Iterator/iterable protocols, function*, yield, async generators, for-await-of
+            </div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain JavaScript error handling comprehensively. Cover: the Error class hierarchy (Error, TypeError, RangeError, ReferenceError, SyntaxError, custom subclasses); try/catch/finally semantics and the rarely understood fact that finally always runs even after a return; synchronous vs asynchronous error propagation — why try/catch does not catch errors thrown inside a raw callback; unhandledRejection and uncaughtException; creating meaningful custom error classes with extra properties; error boundaries as a concept (covered in React phase); and the AggregateError introduced by Promise.any. Provide a reusable error handling pattern for both sync and async code.')">
+            <div class="topic-tag">Errors</div>
+            <div class="topic-name">Error Handling & Custom Error Classes</div>
+            <div class="topic-detail">Error hierarchy, try/catch/finally, async error propagation, custom subclasses,
+              AggregateError</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────── PHASE 2 — NODE.JS ───────────────────────────── -->
+    <div class="phase p2">
+      <div class="phase-header" onclick="toggle(this)">
+        <span class="phase-badge">Phase 2</span>
+        <span class="phase-title">Node.js</span>
+        <span class="phase-desc">What JavaScript gains in a server runtime</span>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="phase-body">
+        <div class="mern-note">
+          <b>Prerequisites (Phase 1):</b> You already know the event loop, async/await, Promises, and
+          CommonJS/ESM modules from JavaScript Core. Node.js does <em>not</em> redefine those — it
+          extends them. This phase covers only what is Node-specific: streams, the fs/path/http built-ins,
+          EventEmitter, child processes, cluster, and worker threads.
+        </div>
+        <div class="topic-grid">
+
+          <div class="topic"
+            onclick="copy('Explain Node.js Streams for someone who already knows JavaScript Promises and async/await (Phase 1). Focus only on what is Node-specific. Cover: why streams exist — processing data larger than RAM, reducing time-to-first-byte; the four stream types (Readable, Writable, Duplex, Transform) and their lifecycles; the flowing vs paused mode distinction; backpressure — what it is, why it matters, and how pipe() handles it automatically; consuming a Readable with for-await-of (stream/promises API); building a custom Transform stream; and real use-cases: gzip compression pipeline, CSV parsing, proxying HTTP responses. Do not re-explain Promises or async/await — assume that knowledge.')">
+            <div class="topic-tag">Streams</div>
+            <div class="topic-name">Streams & Backpressure</div>
+            <div class="topic-detail">Readable/Writable/Transform, flowing vs paused, backpressure, pipe(), for-await-of
+            </div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain Node.js EventEmitter for someone who knows JavaScript closures and
+            the event loop (Phase 1). Cover: how EventEmitter implements the observer pattern; on(), once(), emit(),
+            removeListener(), off(); the EventEmitter memory leak warning and the maxListeners default; error events and
+            why failing to listen for "
+            error" crashes the process; inheriting from EventEmitter in custom classes; and the difference between
+            synchronous emit (listeners run inline on the call stack) vs nextTick/setImmediate deferral. Include a
+            practical example: a file-watcher class that extends EventEmitter.')`>
+            <div class="topic-tag">Events</div>
+            <div class="topic-name">EventEmitter & Observer Pattern</div>
+            <div class="topic-detail">on/once/emit/removeListener, error events, maxListeners, custom EventEmitter
+              subclass</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain the Node.js file system (fs) and path modules. Cover: synchronous vs asynchronous fs methods and why you should almost never use sync variants in a server; callback-style fs vs fs.promises vs the promisified util.promisify pattern; reading and writing files (readFile, writeFile, appendFile, createReadStream, createWriteStream); directory operations (mkdir, readdir, rm with recursive); watching files with fs.watch and fs.watchFile; path.join vs path.resolve vs path.relative, __dirname vs import.meta.url in ESM; and the pattern for safely resolving paths relative to the current module. Assume knowledge of async/await from Phase 1.')">
+            <div class="topic-tag">File System</div>
+            <div class="topic-name">fs, path & File I/O</div>
+            <div class="topic-detail">fs.promises, streams for large files, path.join vs resolve, __dirname vs
+              import.meta.url</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain the Node.js built-in http module — the raw layer that Express and other frameworks wrap. Cover: creating an HTTP server with http.createServer; the IncomingMessage and ServerResponse objects; manually parsing request bodies (Buffer chunks, JSON); setting status codes and response headers; making outgoing HTTP requests with http.get and http.request; HTTPS with the https module; and the url and querystring (or URLSearchParams) modules for parsing request URLs. This is the foundation Express builds on — understanding it makes Phase 3 much clearer. Assume async/await knowledge from Phase 1.')">
+            <div class="topic-tag">HTTP</div>
+            <div class="topic-name">Built-in http Module</div>
+            <div class="topic-detail">http.createServer, IncomingMessage/ServerResponse, body parsing, http.request, URL
+              parsing</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Node.js process model: the process object, environment variables, signals, and graceful shutdown. Cover: process.env for configuration; process.argv for CLI argument parsing; process.exit() and exit codes; Unix signals (SIGTERM, SIGINT, SIGHUP) and how to handle them for graceful shutdown (drain connections, flush logs, close DB pools before exiting); process.nextTick() vs setImmediate() vs setTimeout(fn, 0) — execution order within a single event loop tick; and the uncaughtException and unhandledRejection events as last-resort safety nets. Include a complete graceful shutdown boilerplate.')">
+            <div class="topic-tag">Process</div>
+            <div class="topic-name">process Object, Signals & Graceful Shutdown</div>
+            <div class="topic-detail">process.env, SIGTERM/SIGINT handlers, nextTick vs setImmediate, unhandledRejection
+            </div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain Node.js child processes and worker threads for someone who knows the
+            JavaScript event loop (Phase 1). Cover: why Node.js needs escape hatches for CPU-intensive work (the
+            single-threaded event loop blocks on computation); child_process.spawn vs exec vs fork — when to use each;
+            IPC (inter-process communication) with process.send() and process.on(" message") in forked processes;
+            worker_threads — truly parallel JS execution with SharedArrayBuffer and Atomics; the key distinction between
+            child_process (separate V8, separate memory) and worker_threads (same V8, shared memory); and the cluster
+            module for using all CPU cores for HTTP workloads. Include an example: offloading image compression to a
+            worker thread.')`>
+            <div class="topic-tag">Concurrency</div>
+            <div class="topic-name">Child Processes, Cluster & Worker Threads</div>
+            <div class="topic-detail">spawn/exec/fork, IPC, worker_threads vs child_process, cluster for multi-core HTTP
+            </div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain Node.js module resolution algorithm and the CommonJS module system
+            internals — not just how to use require(), but how Node finds and loads modules. Cover: the full resolution
+            algorithm (core module? → relative path? → node_modules walk?); module caching and the require.cache object;
+            circular dependencies — what happens and why it sometimes gives you an incomplete module; the module wrapper
+            function Node wraps every module in (exports, require, module, __filename, __dirname); package.json "
+            main" vs "exports" for library entry points; and the differences when running in ESM mode
+            (--input-type=module, .mjs, type: "module" ). This builds directly on Phase 1 ESM knowledge.')`>
+            <div class="topic-tag">Modules</div>
+            <div class="topic-name">Module Resolution & require() Internals</div>
+            <div class="topic-detail">Resolution algorithm, require.cache, module wrapper, circular deps, package
+              exports field</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Node.js performance tooling and debugging. Cover: the --inspect flag and how to connect Chrome DevTools or VS Code to a running Node process; CPU profiling (--prof flag + node --prof-process); heap snapshots for memory leak diagnosis from the command line; the perf_hooks module (performance.now(), performance.mark(), PerformanceObserver) for measuring durations without Date.now() drift; the async_hooks module conceptually (how async context tracking works); and using clinic.js (clinic doctor, clinic flame, clinic bubbleprof) for production-grade profiling. Assume streams and event loop knowledge from earlier in this phase.')">
+            <div class="topic-tag">Debugging</div>
+            <div class="topic-name">Debugging, Profiling & Performance</div>
+            <div class="topic-detail">--inspect, CPU profiles, heap snapshots, perf_hooks, clinic.js</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────── PHASE 3 — EXPRESS.JS ───────────────────────────── -->
+    <div class="phase p3">
+      <div class="phase-header" onclick="toggle(this)">
+        <span class="phase-badge">Phase 3</span>
+        <span class="phase-title">Express.js</span>
+        <span class="phase-desc">HTTP server layer — routing, middleware, REST design</span>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="phase-body">
+        <div class="mern-note">
+          <b>Prerequisites (Phases 1–2):</b> You know the Node.js http module, async/await, and
+          EventEmitter. Express wraps the raw http module with routing and a middleware pipeline.
+          HTTP concepts (methods, status codes, headers, request/response lifecycle) are defined
+          <em>once</em> here in Express — NestJS builds on top of them without repeating them.
+        </div>
+        <div class="topic-grid">
+
+          <div class="topic" onclick=`copy('Explain Express.js routing in depth. Cover: app.get/post/put/patch/delete
+            and app.all; route parameters (:id), wildcard segments, and query strings; express.Router() for modular
+            route files and how to mount them with app.use(prefix, router); route ordering and why order matters (first
+            match wins); chaining multiple handlers on a single route; regex and parameterized route patterns; and the
+            router-level param() middleware for pre-loading route parameters. Build a realistic CRUD router for a "
+            posts" resource as the running example. Assume Node.js http module knowledge from Phase 2.')`>
+            <div class="topic-tag">Routing</div>
+            <div class="topic-name">Routing & express.Router()</div>
+            <div class="topic-detail">Route params, query strings, Router(), route mounting, param() pre-loaders, route
+              order</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain the Express middleware pipeline in depth. This is the single most important concept for understanding NestJS later. Cover: what middleware is — a function with (req, res, next) that can read/modify req and res or pass control; the pipeline as a linear chain of middleware; application-level vs router-level vs error-handling middleware; built-in middleware (express.json, express.urlencoded, express.static); third-party middleware (morgan, cors, helmet, compression); writing custom middleware (auth check, request logger, rate limiter); and the critical rule — error-handling middleware must have four parameters (err, req, res, next). Include a diagram of the full pipeline from incoming request to response.')">
+            <div class="topic-tag">Middleware</div>
+            <div class="topic-name">Middleware Pipeline</div>
+            <div class="topic-detail">(req, res, next), pipeline order, error middleware (4-param), built-in and custom
+              middleware</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Express.js error handling — the complete picture. Cover: how Express catches synchronous errors thrown inside route handlers automatically; why async errors must be explicitly forwarded with next(err) (or use express-async-errors / try/catch); the four-parameter error middleware (err, req, res, next) and its placement at the end of the stack; error classification (operational errors vs programmer errors); building a centralised error handler with consistent JSON error responses; handling 404 (not found) with a catch-all route; and how to ensure unhandled promise rejections don\'t silently swallow errors. Include a complete production-grade error handler scaffold.')">
+            <div class="topic-tag">Errors</div>
+            <div class="topic-name">Error Handling in Express</div>
+            <div class="topic-detail">next(err), 4-param error middleware, async errors, centralised error handler, 404
+              catch-all</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain REST API design principles in the context of an Express application. Cover: resource naming conventions (nouns not verbs, plural resources); correct use of HTTP methods (GET, POST, PUT, PATCH, DELETE) and their idempotency characteristics; HTTP status codes — which to use and when (200, 201, 204, 400, 401, 403, 404, 409, 422, 500); request/response body design — consistent envelope vs plain objects; pagination patterns (cursor-based vs offset-based); versioning strategies (/v1/ prefix vs Accept header); and HATEOAS as a concept. Build these patterns into the Express router from the routing topic as a complete working example.')">
+            <div class="topic-tag">REST</div>
+            <div class="topic-name">REST API Design Principles</div>
+            <div class="topic-detail">HTTP methods, status codes, resource naming, pagination, versioning, idempotency
+            </div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain authentication and authorisation patterns in Express. Cover: session-based auth (express-session, cookie, server-side session store); JWT-based auth — signing, verifying, storing tokens (Authorization header vs httpOnly cookie), access vs refresh token pattern, token revocation problem; the difference between authentication (who are you) and authorisation (what can you do); writing auth middleware that validates JWTs and attaches user to req; role-based access control (RBAC) middleware; and CORS — why it exists, the preflight request, and using the cors package correctly. These concepts are referenced (not repeated) in NestJS Guards in Phase 4.')">
+            <div class="topic-tag">Auth</div>
+            <div class="topic-name">Auth: Sessions, JWT & RBAC</div>
+            <div class="topic-detail">Session vs JWT, access/refresh tokens, auth middleware, RBAC, CORS, preflight
+            </div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain request validation and input sanitisation in Express. Cover: why validation belongs in the HTTP layer, not the database layer; using express-validator (check(), validationResult()) for declarative field-level validation; the Joi and Zod schema-based validation alternatives; sanitising inputs to prevent XSS and SQL injection at the boundary; file upload handling with multer (memory vs disk storage, file type/size validation); and building a reusable validate() middleware that reads a Zod schema and returns 422 with structured errors. These patterns are extended (not repeated) by NestJS Pipes in Phase 4.')">
+            <div class="topic-tag">Validation</div>
+            <div class="topic-name">Request Validation & Sanitisation</div>
+            <div class="topic-detail">express-validator, Joi, Zod schemas, multer for uploads, reusable validate()
+              middleware</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Express.js application structure and project organisation for a production codebase. Cover: the layered architecture — routes → controllers → services → data access (repository); why controllers should not contain business logic; dependency injection manually in Express (passing dependencies through constructors vs module singletons); environment configuration with dotenv and the config module; separating the Express app from the server bootstrap (important for testing); integration testing with supertest; and folder structure conventions that scale beyond a few files. Note: this manual DI pattern is what NestJS automates with its IoC container in Phase 4.')">
+            <div class="topic-tag">Structure</div>
+            <div class="topic-name">App Architecture & Project Structure</div>
+            <div class="topic-detail">Routes/controllers/services/repos, manual DI, config, app vs server, supertest
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────── PHASE 4 — NESTJS ───────────────────────────── -->
+    <div class="phase p4">
+      <div class="phase-header" onclick="toggle(this)">
+        <span class="phase-badge">Phase 4</span>
+        <span class="phase-title">NestJS</span>
+        <span class="phase-desc">Opinionated Node framework — starts where Express ends</span>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="phase-body">
+        <div class="mern-note">
+          <b>Prerequisites (Phases 1–3):</b> You know routing, middleware, error handling, auth
+          middleware, validation, and the layered Express architecture. NestJS does not redefine
+          these — it automates and enforces them. Every NestJS concept below maps to something you
+          built manually in Express; the prompts reference that mapping explicitly.
+        </div>
+        <div class="topic-grid">
+
+          <div class="topic"
+            onclick="copy('Explain the NestJS module system and application bootstrap for someone who already knows how Express apps are manually wired together (Phase 3). Cover: what a @Module() decorator does — how it declares providers, imports, exports, and controllers; the root AppModule and feature modules; module encapsulation (a provider is only available where it is declared or exported); dynamic modules for configurable feature modules (forRoot/forFeature pattern used by TypeORM, Config, JWT modules); and the bootstrap() call and the NestFactory. Show the mental model: a NestJS module is the structured version of the Express app.use(router) pattern, enforced by the framework.')">
+            <div class="topic-tag">Core</div>
+            <div class="topic-name">Modules & Application Bootstrap</div>
+            <div class="topic-detail">@Module(), feature modules, imports/exports, encapsulation, dynamic modules,
+              NestFactory</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS Dependency Injection (DI) and the IoC container for someone who manually wired dependencies in Express (Phase 3). Cover: what inversion of control means — the container creates and wires objects instead of you; @Injectable() marking a class as a provider; constructor injection; provider scope (DEFAULT singleton vs REQUEST vs TRANSIENT) and when to use each; custom providers (useClass, useValue, useFactory, useExisting) for mocking and configuration; circular dependency resolution with forwardRef(); and how to test a service in isolation by replacing its dependencies with mocks in the testing module.')">
+            <div class="topic-tag">DI</div>
+            <div class="topic-name">Dependency Injection & IoC Container</div>
+            <div class="topic-detail">@Injectable(), constructor injection, provider scopes, custom providers,
+              forwardRef(), testing mocks</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS Controllers and the request lifecycle for someone who knows Express routing (Phase 3). Cover: @Controller() and route prefix; HTTP method decorators (@Get, @Post, @Put, @Patch, @Delete); parameter decorators (@Param, @Query, @Body, @Headers, @Req, @Res); @HttpCode() and @Header(); the full request lifecycle — middleware → guards → interceptors (pre) → pipes → route handler → interceptors (post) → exception filters; and how using @Res() directly bypasses NestJS response handling (the footgun). Map each step to its Express equivalent: guards = auth middleware, pipes = validation middleware, filters = error middleware.')">
+            <div class="topic-tag">Controllers</div>
+            <div class="topic-name">Controllers & Request Lifecycle</div>
+            <div class="topic-detail">@Controller, HTTP decorators, param decorators, full lifecycle:
+              guards→pipes→handler→filters</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS Guards for someone who wrote JWT auth middleware in Express (Phase 3). Cover: how a Guard maps to an auth/RBAC middleware in Express but with the IoC container available; implementing the CanActivate interface; extracting the JWT from the request and verifying it inside a guard; binding guards at the method, controller, or global level; the @SetMetadata() + Reflector pattern for role-based access control (@Roles() custom decorator); the AuthGuard from @nestjs/passport; and combining multiple guards. Show the exact Guard equivalent of the Express JWT middleware from Phase 3.')">
+            <div class="topic-tag">Auth</div>
+            <div class="topic-name">Guards & Role-Based Access Control</div>
+            <div class="topic-detail">CanActivate, JWT guard, @Roles() + Reflector, global guard, passport AuthGuard
+            </div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS Pipes for someone who wrote Zod/express-validator middleware in Express (Phase 3). Cover: how a Pipe maps to validation middleware but runs after guards and has access to the parameter metadata; the built-in ValidationPipe with class-validator and class-transformer — how @IsString(), @IsInt(), whitelist: true, and transform: true work together; writing a custom ParseUUID pipe; global vs controller vs method vs parameter binding; and the ParseIntPipe, ParseBoolPipe, ParseArrayPipe built-ins. Show the ValidationPipe as the automated version of the Express Zod validate() middleware from Phase 3.')">
+            <div class="topic-tag">Validation</div>
+            <div class="topic-name">Pipes, ValidationPipe & class-validator</div>
+            <div class="topic-detail">ValidationPipe, class-validator DTOs, whitelist, transform, custom pipes, global
+              binding</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS Interceptors for someone who knows Express middleware (Phase 3). Cover: how an Interceptor wraps both the pre- and post-handler execution (using RxJS Observable), unlike Express middleware which is only pre-handler; implementing the NestInterceptor interface; practical interceptors — response serialisation (transform {data: result}), request/response logging, caching with a map, timeout with RxJS timeout operator; how Interceptors compare to and differ from Middleware (both sides of the handler) and Guards (read-only, short-circuit); and when to put cross-cutting logic in middleware vs guard vs interceptor.')">
+            <div class="topic-tag">Cross-Cutting</div>
+            <div class="topic-name">Interceptors</div>
+            <div class="topic-detail">NestInterceptor, RxJS Observable wrapping, response transform, logging, caching,
+              timeouts</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS Exception Filters for someone who built a centralised Express error handler (Phase 3). Cover: how an Exception Filter maps to the 4-parameter error middleware in Express but with the IoC container and execution context; the built-in HttpException and its subclasses (NotFoundException, UnauthorizedException, etc.); implementing the ExceptionFilter interface and @Catch() decorator; catching only specific exception types; building a global exception filter that returns a consistent JSON error envelope; and using @nestjs/mapped-types for PartialType/OmitType in DTOs. Show the filter as the automated version of the Express centralised error handler.')">
+            <div class="topic-tag">Errors</div>
+            <div class="topic-name">Exception Filters</div>
+            <div class="topic-detail">@Catch(), ExceptionFilter, HttpException hierarchy, global filter, consistent
+              error envelope</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain NestJS database integration with TypeORM and the Repository pattern. Cover: the TypeOrmModule.forRoot() and forFeature() setup; defining entities with @Entity(), @Column(), @PrimaryGeneratedColumn(); the repository pattern (@InjectRepository) and the built-in Repository<T> methods; relations — @OneToMany, @ManyToOne, @ManyToMany with join tables; QueryBuilder for complex queries; migrations vs synchronize:true (never in production); and transactions with QueryRunner. Contrast this with Prisma as an alternative ORM. Assume knowledge of layered architecture and DI from earlier in this phase.')">
+            <div class="topic-tag">Database</div>
+            <div class="topic-name">TypeORM, Entities & Repository Pattern</div>
+            <div class="topic-detail">TypeOrmModule, @Entity, @Column, Repository<T>, relations, QueryBuilder,
+                migrations</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────── PHASE 5 — REACT.JS ───────────────────────────── -->
+    <div class="phase p5">
+      <div class="phase-header" onclick="toggle(this)">
+        <span class="phase-badge">Phase 5</span>
+        <span class="phase-title">React.js</span>
+        <span class="phase-desc">UI layer — components, hooks, state, performance</span>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="phase-body">
+        <div class="mern-note">
+          <b>Prerequisites (Phase 1):</b> You know JavaScript closures, Promises, async/await,
+          ES modules, and the event loop. React is a pure JavaScript library — its "magic"
+          is closures and the reconciler. All React hooks (useState, useEffect, useMemo, etc.)
+          are defined <em>once</em> here. Next.js in Phase 6 starts where this phase ends and
+          will reference these hooks without redefining them.
+        </div>
+        <div class="topic-grid">
+
+          <div class="topic"
+            onclick="copy('Explain React components, JSX, and the rendering model from first principles, for someone who knows JavaScript (Phase 1). Cover: what JSX compiles to (React.createElement / the new JSX transform); functional components as pure functions from props to JSX; the React element tree vs the DOM tree; how React\'s reconciler (Fibre) diffs the virtual DOM and commits minimal DOM mutations; why components must be pure (no side effects during render); and the component lifecycle implied by hooks — mount, update, unmount. This is the conceptual foundation that useState, useEffect, and all other hooks build on.')">
+            <div class="topic-tag">Core</div>
+            <div class="topic-name">Components, JSX & the Rendering Model</div>
+            <div class="topic-detail">JSX compilation, React.createElement, Fibre reconciler, virtual DOM diff,
+              component purity</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain React props and component composition in depth. Cover: props as the public API of a component; the children prop and render props pattern; prop drilling — what it is, when it is fine, and when it becomes a problem; component composition over configuration (composing behaviour with children vs giant prop lists); forwarding refs with React.forwardRef(); the compound component pattern (like a <Select> + <Option> API); and higher-order components (HOC) as the pre-hooks pattern — what problems they solved and why hooks replaced most of them. Do not cover context here — that is the next topic.')">
+            <div class="topic-tag">Props</div>
+            <div class="topic-name">Props, Composition & Patterns</div>
+            <div class="topic-detail">children prop, render props, forwardRef, compound components, HOC pattern</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain React state management with useState and useReducer. Cover: what "
+            state" means in React — a value that, when changed, triggers a re-render; the closure model of useState
+            (why you get a stale value if you read state in a callback without the setter form); the functional update
+            form setState(prev=> ...); batching of state updates in React 18 (automatic batching); when to use
+            useReducer
+            instead of useState — complex state transitions, multiple related sub-values, co-location of state logic;
+            and initialiser functions for expensive initial state. Assume JavaScript closures are known from Phase
+            1.')`>
+            <div class="topic-tag">State</div>
+            <div class="topic-name">useState & useReducer</div>
+            <div class="topic-detail">Closure model, stale closures, functional updates, React 18 batching, useReducer
+              for complex state</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain the useEffect hook comprehensively. Cover: what " side effects" are
+            and why they must not run during render; the dependency array — every reactive value used inside the effect
+            must be listed; what happens with an empty array [], a full array, and no array; cleanup functions and why
+            they are critical for subscriptions, timers, and event listeners; the "rules of hooks" — why hooks cannot be
+            inside conditionals or loops (the call order invariant); common useEffect bugs (missing deps, stale closures
+            in effects, infinite loops); and when NOT to use useEffect (derived state, event handlers, data
+            transformations that can be computed during render). Assume React rendering model from the first topic in
+            this phase.')`>
+            <div class="topic-tag">Effects</div>
+            <div class="topic-name">useEffect & Side Effects</div>
+            <div class="topic-detail">Dependency array, cleanup, rules of hooks, stale closures in effects, when not to
+              use useEffect</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain React Context API as a solution to prop drilling. Cover:
+            React.createContext() and the Provider/Consumer model; when to use context vs prop drilling vs external
+            state management; the re-render problem — every consumer re-renders when the context value changes, even if
+            they only use part of it; splitting context to avoid unnecessary re-renders; context composition patterns;
+            and the practical pattern of pairing useContext with useReducer for a lightweight global store. Note: this
+            is the React-native state sharing mechanism; for larger apps, see the Zustand/Redux topics. Builds on
+            useState/useReducer from the previous topic.')`>
+            <div class="topic-tag">State Sharing</div>
+            <div class="topic-name">Context API</div>
+            <div class="topic-detail">createContext, Provider, useContext, re-render problem, context splitting, context
+              + useReducer</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain useRef, useMemo, and useCallback — the three " escape hatch /
+            optimisation" hooks. Cover: useRef as a mutable box that persists across renders without triggering
+            re-renders — uses: DOM references, storing previous values, cancelling timeouts; useMemo for memoising
+            expensive computed values — when it is worth it vs when it adds overhead; useCallback for stable function
+            references — why it matters for child component re-renders and useEffect dependency arrays; the common
+            mistake of over-memoising; and the relationship between these hooks and JavaScript closures (Phase 1).
+            Provide a concrete performance example that motivates each hook.')`>
+            <div class="topic-tag">Optimisation</div>
+            <div class="topic-name">useRef, useMemo & useCallback</div>
+            <div class="topic-detail">Mutable refs, DOM refs, memoisation cost/benefit, stable callbacks,
+              over-memoisation pitfall</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain React performance optimisation techniques. Cover: React.memo() for preventing unnecessary child re-renders — when it helps and when it does not (props that change every render, cheap components); profiling with React DevTools Profiler — reading flame graphs, identifying wasted renders; list rendering with stable key props and why using array index as key breaks reconciliation; lazy loading components with React.lazy() and Suspense; code splitting at the route level; and the React 18 concurrent features — useTransition for non-urgent updates and useDeferredValue for deferring expensive renders. Builds on useMemo/useCallback from the previous topic.')">
+            <div class="topic-tag">Performance</div>
+            <div class="topic-name">Performance Optimisation</div>
+            <div class="topic-detail">React.memo, Profiler, key prop, React.lazy + Suspense, useTransition,
+              useDeferredValue</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain custom hooks in React — the primary code-reuse mechanism. Cover:
+            what makes a custom hook (a function whose name starts with "
+            use" and calls other hooks); how custom hooks let you extract stateful logic without changing component
+            hierarchy; practical examples: useFetch(url) for data fetching with loading/error state,
+            useLocalStorage(key) for persisted state, useDebounce(value, delay), useWindowSize(), useEventListener();
+            the difference between sharing state (context) and sharing stateful logic (custom hook); and how to test
+            custom hooks with renderHook from @testing-library/react. Builds on useState, useEffect, useRef from earlier
+            in this phase.')`>
+            <div class="topic-tag">Reuse</div>
+            <div class="topic-name">Custom Hooks</div>
+            <div class="topic-detail">Extracting stateful logic, useFetch, useDebounce, useLocalStorage, testing with
+              renderHook</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain external state management in React: Zustand and Redux Toolkit. Cover: why Context + useReducer is insufficient for large apps (performance, devtools, middleware, async actions); Zustand — minimal boilerplate store with create(), selectors to prevent unnecessary re-renders, immer integration for immutable updates, devtools middleware; Redux Toolkit — createSlice(), configureStore(), createAsyncThunk for async actions, RTK Query for server state caching; and the mental model of server state vs client state — libraries like TanStack Query (React Query) for server state vs Zustand/Redux for UI state. Builds on Context API and custom hooks from earlier in this phase.')">
+            <div class="topic-tag">State Mgmt</div>
+            <div class="topic-name">Zustand & Redux Toolkit</div>
+            <div class="topic-detail">Zustand store, selectors, immer, Redux Toolkit createSlice, createAsyncThunk, RTK
+              Query</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain React forms: controlled vs uncontrolled components and React Hook Form. Cover: controlled components — value and onChange wired to state, the single source of truth; uncontrolled components with useRef — when to use them; the performance problem of re-rendering on every keystroke with controlled inputs; React Hook Form — register(), handleSubmit(), formState.errors, watch(), Controller for third-party inputs; schema validation integration with Zod (resolver); and field arrays with useFieldArray. Builds on useState, useRef, custom hooks, and Zod knowledge from Phase 3.')">
+            <div class="topic-tag">Forms</div>
+            <div class="topic-name">Forms & React Hook Form</div>
+            <div class="topic-detail">Controlled vs uncontrolled, React Hook Form register/handleSubmit, Zod resolver,
+              useFieldArray</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────── PHASE 6 — NEXT.JS ───────────────────────────── -->
+    <div class="phase p6">
+      <div class="phase-header" onclick="toggle(this)">
+        <span class="phase-badge">Phase 6</span>
+        <span class="phase-title">Next.js</span>
+        <span class="phase-desc">React meta-framework — starts where React ends</span>
+        <span class="chevron">▶</span>
+      </div>
+      <div class="phase-body">
+        <div class="mern-note">
+          <b>Prerequisites (Phases 1–5):</b> You know every React hook, component patterns, context,
+          state management, and data fetching. Next.js does not redefine these — it adds the server
+          layer (SSR, SSG, ISR), the App Router, and Server Components on top of the React you
+          already know. Topics below reference "builds on React hooks — covered in Phase 5" explicitly
+          where relevant.
+        </div>
+        <div class="topic-grid">
+
+          <div class="topic"
+            onclick="copy('Explain Next.js rendering strategies — SSR, SSG, ISR, and CSR — and when to use each. Cover: Static Site Generation (SSG) with generateStaticParams — HTML at build time, fastest possible TTFB; Server-Side Rendering (SSR) — HTML per request, always fresh; Incremental Static Regeneration (ISR) — stale-while-revalidate: revalidate seconds; Client-Side Rendering (CSR) — the React default, no server HTML; and the hybrid model — different pages in the same app can use different strategies. Include a decision framework: static content → SSG, personalised → SSR, high traffic + mostly static → ISR, dashboard with private data → CSR. This is the core value proposition of Next.js over plain React.')">
+            <div class="topic-tag">Rendering</div>
+            <div class="topic-name">SSR, SSG, ISR & CSR — Rendering Strategies</div>
+            <div class="topic-detail">Build-time vs request-time HTML, ISR revalidate, hybrid strategies, decision
+              framework</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain the Next.js App Router — the modern routing system introduced in Next.js 13 and stabilised in 14. Cover: the app/ directory convention; folder = route segment; page.tsx as the publicly accessible route; layout.tsx for shared UI that wraps child routes (persists across navigations); loading.tsx and error.tsx as automatic Suspense and error boundary wrappers; route groups with (groupName) folders; parallel routes with @slot convention; intercepting routes with (.) prefix; and the Link component and useRouter for programmatic navigation (useRouter is a client hook — builds on React hooks from Phase 5). Contrast with the Pages Router for migration context.')">
+            <div class="topic-tag">Routing</div>
+            <div class="topic-name">App Router: Layouts, Pages & Conventions</div>
+            <div class="topic-detail">app/ directory, page.tsx, layout.tsx, loading/error boundaries, route groups,
+              parallel routes</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain React Server Components (RSC) in Next.js — the paradigm shift from
+            Phase 5 React. Cover: what Server Components are — components that render only on the server, never hydrated
+            on the client, can directly await databases and file system; why they exist — zero JS bundle cost, secure
+            server-only data access; the Server vs Client Component boundary — the "
+            use client" directive marks the boundary; composition rules — Server Components can import Client
+            Components but not vice versa (the "doughnut" pattern for wrapping); passing Server Component output as
+            children to a Client Component to avoid the boundary; and the serialisation constraint (only serialisable
+            props cross the boundary). Explicitly builds on React component model from Phase 5.')`>
+            <div class="topic-tag">RSC</div>
+            <div class="topic-name">Server Components vs Client Components</div>
+            <div class="topic-detail">"use client" boundary, zero-bundle server rendering, composition rules,
+              serialisation constraint</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain Next.js data fetching patterns in the App Router. Cover: async
+            Server Components fetching data directly with await fetch() or ORM calls — no useEffect needed (useEffect is
+            a client-side hook, covered in Phase 5); the fetch() extension in Next.js — cache: "
+            no-store" for SSR, next: { revalidate: N } for ISR, cache: "force-cache" for SSG; request deduplication
+            across parallel fetch calls; fetching data in layouts vs pages; parallel data fetching with Promise.all for
+            performance; and using TanStack Query (React Query) on the client side for mutations and real-time
+            invalidation — builds on client state management from Phase 5.')`>
+            <div class="topic-tag">Data</div>
+            <div class="topic-name">Data Fetching in App Router</div>
+            <div class="topic-detail">async Server Components, fetch() cache options, request dedup, parallel fetching,
+              TanStack Query</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain Next.js Server Actions — the mechanism for mutating data from React
+            components without writing API endpoints. Cover: the "
+            use server" directive for marking a function as a server action; calling a server action directly from a
+            form action attribute or an event handler; how Server Actions are POST requests under the hood (Next.js
+            handles the endpoint); useFormState and useFormStatus hooks (build on React hooks from Phase 5) for
+            progressive enhancement and pending state; revalidating cached data after a mutation with revalidatePath()
+            and revalidateTag(); optimistic updates with useOptimistic; and security considerations — Server Actions are
+            public endpoints, validate inputs with Zod.')`>
+            <div class="topic-tag">Mutations</div>
+            <div class="topic-name">Server Actions</div>
+            <div class="topic-detail">"use server", form action, useFormState/Status, revalidatePath/Tag, useOptimistic,
+              Zod validation</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Next.js API Routes and Route Handlers (the App Router equivalent). Cover: the app/api/.../route.ts convention; exporting GET, POST, PUT, DELETE, PATCH named functions; the NextRequest and NextResponse objects; reading request body, headers, cookies, and search params; streaming responses with ReadableStream; protecting route handlers with auth (builds on JWT/session knowledge from Phase 3); and when to use Route Handlers vs Server Actions — Route Handlers for webhooks, third-party callbacks, and public APIs; Server Actions for form mutations initiated by the user. Note: HTTP method semantics are defined in Phase 3 and referenced here, not repeated.')">
+            <div class="topic-tag">API</div>
+            <div class="topic-name">Route Handlers (API Routes)</div>
+            <div class="topic-detail">route.ts GET/POST/etc., NextRequest/Response, streaming, auth protection, vs
+              Server Actions</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Next.js Middleware — the edge-runtime layer that runs before a request reaches a page or API route. Cover: the middleware.ts file at the project root; the matcher config for limiting which paths trigger middleware; reading and rewriting request URLs, redirecting, setting request/response headers; reading and setting cookies — the primary use for auth (redirect to /login if no session cookie); the Edge Runtime constraints (no Node.js APIs — builds on Node.js runtime knowledge from Phase 2 for contrast); and practical patterns: locale detection and redirect, A/B testing, bot detection, authentication gate. Include a complete auth middleware example.')">
+            <div class="topic-tag">Edge</div>
+            <div class="topic-name">Middleware & Edge Runtime</div>
+            <div class="topic-detail">middleware.ts, matcher, rewrite/redirect, cookie auth gate, Edge Runtime
+              constraints</div>
+          </div>
+
+          <div class="topic"
+            onclick="copy('Explain Next.js image and font optimisation, and the metadata API. Cover: next/image — automatic WebP/AVIF conversion, lazy loading, blur placeholder, sizes prop for responsive images, priority for LCP images, remote image domains in next.config; next/font — zero-layout-shift font loading, self-hosting Google Fonts, font variable for CSS custom properties; the Metadata API — static export const metadata and dynamic generateMetadata() for per-page SEO, Open Graph images with ImageResponse, robots.txt and sitemap.xml generation. These are production correctness topics that matter for Core Web Vitals. Builds on Server Components from earlier in this phase.')">
+            <div class="topic-tag">Optimisation</div>
+            <div class="topic-name">Image, Font & Metadata Optimisation</div>
+            <div class="topic-detail">next/image WebP/AVIF/lazy, next/font zero-CLS, Metadata API, generateMetadata, OG
+              images</div>
+          </div>
+
+          <div class="topic" onclick=`copy('Explain Next.js deployment, configuration, and the next.config.js file.
+            Cover: deploying to Vercel (the canonical path) — preview deployments, environment variables in Vercel vs
+            .env.local; self-hosting with next start — requirements and the standalone output option for Docker;
+            next.config.js — redirects, rewrites, headers, image remote patterns, env exposure (publicRuntimeConfig vs
+            NEXT_PUBLIC_ prefix), webpack customisation; environment variable conventions — server-only vs NEXT_PUBLIC_
+            client-exposed variables and the security implications; and output: "
+            export" for fully static export (no server features). Builds on Node.js process.env knowledge from Phase
+            2.')`>
+            <div class="topic-tag">Deployment</div>
+            <div class="topic-name">Deployment, Config & next.config.js</div>
+            <div class="topic-detail">Vercel deploy, self-hosting Docker, next.config.js redirects/rewrites, env vars,
+              static export</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <div id="toast"><span class="check">✓</span><span id="toast-text">Prompt copied</span></div>
+  <script src="../shared/app.js"></script>
+</body>
+
+</html>
