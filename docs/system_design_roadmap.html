@@ -52,38 +52,32 @@
         <div class="mern-note"><b>MERN tip:</b> You already think in client-server terms — here you formalize that
           mental model into system design vocabulary.</div>
         <div class="topic-grid">
-          <div class="topic"
-            onclick="copy('Explain Client-Server Architecture for system design interviews. Cover: request-response model, stateless vs stateful servers, N-tier patterns (2-tier, 3-tier, N-tier), and how roles like client/server are relative not fixed. Include interactive diagrams showing the full HTTP request lifecycle with DNS, TCP, and DB query steps. Add interview tips for each step.')">
+          <div class="topic" onclick="copy(t.clientServer)">
             <div class="topic-tag">Architecture</div>
             <div class="topic-name">Client–Server Architecture</div>
             <div class="topic-detail">Request-response model, stateless vs stateful, N-tier patterns</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain networking fundamentals for system design interviews: HTTP, TCP, DNS, CDN. Cover HTTP methods and status codes, HTTP/1.1 vs HTTP/2 vs HTTP/3, the TCP 3-way handshake, TCP vs UDP trade-offs, the full DNS resolution chain with TTL and GeoDNS, and CDN cache hit vs miss flows with push vs pull models. Include interactive diagrams and interview tips.')">
+          <div class="topic" onclick="copy(t.networkingBasics)">
             <div class="topic-tag">Networking</div>
             <div class="topic-name">Networking Basics</div>
             <div class="topic-detail">HTTP/HTTPS, TCP/UDP, DNS resolution, CDN, latency vs bandwidth</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain REST vs GraphQL vs gRPC for system design interviews. For each: when to use it, core trade-offs, real-world examples, and failure modes. Cover REST over/under-fetching, GraphQL N+1 and caching problems, gRPC Protobuf and streaming modes. End with a decision framework and the senior-level answer that uses all three in one system.')">
+          <div class="topic" onclick="copy(t.apiDesign)">
             <div class="topic-tag">APIs</div>
             <div class="topic-name">API Design Paradigms</div>
             <div class="topic-detail">REST, GraphQL, gRPC, WebSockets, API versioning</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain scalability fundamentals for system design interviews: vertical vs horizontal scaling. Cover the four bottleneck layers (CPU, memory, I/O, network), when to use vertical vs horizontal, stateless app servers, auto-scaling, CDN offloading, read replicas, caching, and async job queues. Include an interactive calculator and worked scenarios showing when each approach makes sense.')">
+          <div class="topic" onclick="copy(t.scalability)">
             <div class="topic-tag">Scalability</div>
             <div class="topic-name">Scalability Basics</div>
             <div class="topic-detail">Vertical vs horizontal scaling, elasticity, throughput, bottlenecks</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain CAP theorem and ACID vs BASE for system design interviews. Cover what Consistency, Availability, and Partition Tolerance actually mean, why CA is impossible in distributed systems, CP vs AP real-world databases, ACID properties with a bank transfer example, BASE properties with an eventual consistency example, and tunable consistency with the W+R>N formula. Include an interactive quorum simulator.')">
+          <div class="topic" onclick="copy(t.capTheorem)">
             <div class="topic-tag">Theory</div>
             <div class="topic-name">CAP Theorem & ACID/BASE</div>
             <div class="topic-detail">Consistency, availability, partition tolerance trade-offs</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain back-of-envelope estimation for system design interviews. Cover the essential numbers to memorize (seconds per day ~100K, storage sizes, latency numbers, traffic rules), the 4-step estimation framework (assumptions → QPS → storage → infrastructure), and work through three complete examples: URL shortener, Twitter feed, and WhatsApp messages. Include an interactive calculator with presets.')">
+          <div class="topic" onclick="copy(t.estimation)">
             <div class="topic-tag">Estimation</div>
             <div class="topic-name">Back-of-Envelope Estimation</div>
             <div class="topic-detail">QPS, storage, bandwidth, memory calculations in interviews</div>
@@ -104,38 +98,32 @@
         <div class="mern-note"><b>MERN tip:</b> You know MongoDB well — focus on learning when NOT to use it, and what
           the alternatives buy you at scale.</div>
         <div class="topic-grid">
-          <div class="topic"
-            onclick="copy('Explain SQL vs NoSQL databases for system design interviews: when to use which. Cover relational vs document vs key-value vs wide-column vs graph databases, the trade-offs in schema flexibility, scaling, and consistency, and give clear decision rules. Explain all four NoSQL types with real examples (Redis, MongoDB, Cassandra, Neo4j). Include a decision framework for choosing between them.')">
+          <div class="topic" onclick="copy(t.sqlVsNoSql)">
             <div class="topic-tag">Choice</div>
             <div class="topic-name">SQL vs NoSQL</div>
             <div class="topic-detail">Relational, document, key-value, graph, time-series databases</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain database indexing, sharding, and partitioning for system design interviews. Cover B-tree indexes, composite indexes and the left-prefix rule, covering indexes, partial indexes, write cost trade-offs, range vs hash vs list partitioning with partition pruning, and sharding strategies (range, hash, directory, consistent hashing). Explain the hard problems: cross-shard joins, global IDs, resharding. Include the decision ladder from indexes to sharding.')">
+          <div class="topic" onclick="copy(t.indexingSharding)">
             <div class="topic-tag">Performance</div>
             <div class="topic-name">Indexing, Sharding & Partitioning</div>
             <div class="topic-detail">B-tree indexes, horizontal sharding, range vs hash partition</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain database replication strategies for system design interviews. Cover leader-follower (primary-replica) replication with synchronous vs asynchronous modes, replication lag and read-your-own-writes consistency, multi-leader replication with conflict resolution, leaderless replication with quorum reads and writes, and failover strategies. Include real systems: PostgreSQL streaming replication, MySQL binlog, Cassandra multi-master.')">
+          <div class="topic" onclick="copy(t.replication)">
             <div class="topic-tag">Reliability</div>
             <div class="topic-name">Replication Strategies</div>
             <div class="topic-detail">Leader-follower, multi-leader, leaderless; read replicas</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain the caching layer for system design interviews: Redis, Memcached, and cache strategies. Cover cache-aside, write-through, write-behind, and read-through patterns, TTL and eviction policies (LRU, LFU), cache invalidation strategies, cache stampede and how to prevent it, Redis data structures and use cases, and how to size a cache. Include the connection to reducing DB load and the 80/20 hot data rule.')">
+          <div class="topic" onclick="copy(t.cachingLayer)">
             <div class="topic-tag">Caching</div>
             <div class="topic-name">Caching Layer</div>
             <div class="topic-detail">Redis, Memcached, cache-aside, write-through, TTL, eviction</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain blob and object storage in system design interviews. Cover S3-style object stores vs file systems vs block storage, when to use each, how CDN integrates with object storage for media serving, pre-signed URLs for secure direct uploads, multipart upload for large files, and storage tiers (hot, warm, cold, archive). Give real examples: user profile photos, video files, backups, static assets.')">
+          <div class="topic" onclick="copy(t.blobStorage)">
             <div class="topic-tag">Storage</div>
             <div class="topic-name">Blob & Object Storage</div>
             <div class="topic-detail">S3-style object stores, file systems, CDN-backed media serving</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain OLTP vs OLAP for system design interviews. Cover transactional vs analytical workloads, why they need different database designs (row-oriented vs column-oriented storage), data warehouses (Snowflake, BigQuery, Redshift), the ETL/ELT pipeline, materialized views, and when to build a separate analytics system vs query the primary DB. Include the Lambda and Kappa architecture patterns.')">
+          <div class="topic" onclick="copy(t.oltpVsOlap)">
             <div class="topic-tag">Analytics</div>
             <div class="topic-name">OLTP vs OLAP</div>
             <div class="topic-detail">Transactional vs analytical systems, data warehouses, columnar stores</div>
@@ -154,38 +142,32 @@
       </div>
       <div class="phase-body">
         <div class="topic-grid">
-          <div class="topic"
-            onclick="copy('Explain load balancers for system design interviews. Cover L4 vs L7 load balancing, load balancing algorithms (round-robin, least-connections, IP hash, weighted), sticky sessions and why they are a problem, health checks and automatic failover, the difference between hardware and software load balancers, and how to use consistent hashing for session-aware routing. Include Nginx, HAProxy, and AWS ALB/NLB examples.')">
+          <div class="topic" onclick="copy(t.loadBalancers)">
             <div class="topic-tag">Traffic</div>
             <div class="topic-name">Load Balancers</div>
             <div class="topic-detail">L4 vs L7, round-robin, least-connections, consistent hashing</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain rate limiting for system design interviews. Cover token bucket, leaky bucket, fixed window counter, and sliding window log algorithms with their trade-offs, where to implement rate limiting (client, gateway, service), distributed rate limiting with Redis, rate limit headers and 429 responses, and how to handle rate limit bypass attempts. Include a visual comparison of all four algorithms.')">
+          <div class="topic" onclick="copy(t.rateLimiting)">
             <div class="topic-tag">Protection</div>
             <div class="topic-name">Rate Limiting</div>
             <div class="topic-detail">Token bucket, leaky bucket, sliding window log, Redis-based impl</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain circuit breaker, retry, and fallback patterns for system design interviews. Cover the three circuit breaker states (closed, open, half-open), exponential backoff with jitter for retries, the bulkhead pattern for isolating failures, timeout strategies, the difference between fail-fast and fail-safe, and how these patterns compose together. Give real examples with Hystrix, Resilience4j, and custom implementations.')">
+          <div class="topic" onclick="copy(t.circuitBreaker)">
             <div class="topic-tag">Resilience</div>
             <div class="topic-name">Circuit Breaker & Retries</div>
             <div class="topic-detail">Exponential backoff, jitter, bulkhead, timeout strategies</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain CDN and edge caching deeply for system design interviews. Cover how CDN Points of Presence work, push vs pull CDN models, cache-control headers and TTL, ETags and conditional requests (304 Not Modified), cache invalidation vs cache busting with content-hashed filenames, CDN failover, and how to design a frontend deployment strategy that maximizes cache efficiency. Include Cloudflare, CloudFront, and Fastly examples.')">
+          <div class="topic" onclick="copy(t.cdnEdge)">
             <div class="topic-tag">Latency</div>
             <div class="topic-name">CDN & Edge Caching</div>
             <div class="topic-detail">PoPs, push vs pull CDN, cache invalidation at the edge</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain availability patterns for system design interviews. Cover SLA/SLO/SLI definitions and how to calculate nines (99.9% = 8.7 hrs downtime/year), active-passive vs active-active failover, redundancy at every tier, chaos engineering principles, graceful degradation vs hard failure, and how to design for partial availability. Include the math for calculating composite system availability from component SLAs.')">
+          <div class="topic" onclick="copy(t.availability)">
             <div class="topic-tag">SLAs</div>
             <div class="topic-name">Availability Patterns</div>
             <div class="topic-detail">SLA/SLO/SLI, 99.9% vs 99.99%, active-passive, active-active failover</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain consistent hashing for system design interviews. Cover why simple modulo hashing breaks when adding nodes (the rehashing problem), how the hash ring works, virtual nodes (vnodes) and why they are needed for even distribution, the mechanics of node addition and removal with minimal data movement, and real systems that use it: Cassandra, DynamoDB, Memcached, load balancers. Include an interactive ring visualization.')">
+          <div class="topic" onclick="copy(t.consistentHashing)">
             <div class="topic-tag">Distribution</div>
             <div class="topic-name">Consistent Hashing</div>
             <div class="topic-detail">Hash rings, virtual nodes, minimal key remapping on node changes</div>
@@ -206,26 +188,22 @@
         <div class="mern-note"><b>MERN tip:</b> You know async/await at the code level — now think async at the
           infrastructure level. A message queue is async/await for entire services.</div>
         <div class="topic-grid">
-          <div class="topic"
-            onclick="copy('Explain message queues for system design interviews: Kafka vs RabbitMQ vs SQS. Cover the producer-consumer model, at-least-once vs exactly-once vs at-most-once delivery semantics, message ordering guarantees, dead-letter queues, consumer groups and parallel processing, backpressure handling, and when to use each system. Include Kafka partitions and offsets, RabbitMQ exchanges, and SQS FIFO vs standard queues.')">
+          <div class="topic" onclick="copy(t.messageQueues)">
             <div class="topic-tag">Queues</div>
             <div class="topic-name">Message Queues</div>
             <div class="topic-detail">Kafka, RabbitMQ, SQS — at-least-once vs exactly-once delivery</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain pub/sub and event streaming for system design interviews. Cover the difference between message queues and pub/sub, topics and subscriptions, fan-out patterns, event sourcing (storing events as the source of truth), event-driven architecture benefits and trade-offs, Kafka as an event log, and how to design systems that react to events rather than poll for state. Include real examples: order processing, notifications, audit logs.')">
+          <div class="topic" onclick="copy(t.pubSub)">
             <div class="topic-tag">Events</div>
             <div class="topic-name">Pub/Sub & Event Streaming</div>
             <div class="topic-detail">Topics, consumer groups, event sourcing, fan-out patterns</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain background jobs and worker systems for system design interviews. Cover job queue patterns, idempotent job design (so retries are safe), dead-letter queues for failed jobs, cron scheduling, priority queues, job deduplication, and how to scale workers horizontally based on queue depth. Give real examples: email sending, image resizing, report generation, payment processing. Include Redis-based queues (BullMQ) and cloud options (SQS + Lambda).')">
+          <div class="topic" onclick="copy(t.backgroundJobs)">
             <div class="topic-tag">Workers</div>
             <div class="topic-name">Background Jobs & Workers</div>
             <div class="topic-detail">Job queues, idempotent workers, dead-letter queues, cron scheduling</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain push vs pull communication patterns for system design interviews: webhooks, polling, WebSockets, and Server-Sent Events. Cover the trade-offs of each (latency, resource usage, complexity), when to use WebSockets vs SSE vs long-polling, webhook reliability (retries, signature verification, idempotency), and how to design a real-time notification system. Include a comparison diagram and decision framework.')">
+          <div class="topic" onclick="copy(t.pushVsPull)">
             <div class="topic-tag">Real-time</div>
             <div class="topic-name">Push vs Pull Communication</div>
             <div class="topic-detail">Webhooks, long polling, WebSockets, Server-Sent Events</div>
@@ -244,38 +222,32 @@
       </div>
       <div class="phase-body">
         <div class="topic-grid">
-          <div class="topic"
-            onclick="copy('Explain monolith vs microservices for system design interviews. Cover when a monolith is the right choice (early stage, small team, unclear domain boundaries), the strangler fig pattern for decomposing a monolith, microservice trade-offs (network latency, distributed transactions, operational complexity), service boundaries and domain-driven design, and the most common mistake of premature microservices. Be honest about the costs.')">
+          <div class="topic" onclick="copy(t.monolithVsMicro)">
             <div class="topic-tag">Architecture</div>
             <div class="topic-name">Monolith vs Microservices</div>
             <div class="topic-detail">Trade-offs, strangler fig pattern, when NOT to use microservices</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain the API Gateway pattern for system design interviews. Cover the gateway as a single entry point, responsibilities it should own (auth enforcement, rate limiting, request routing, SSL termination, logging), the aggregation pattern for combining multiple service calls, BFF (Backend for Frontend) pattern, and when a gateway becomes a bottleneck. Include Kong, AWS API Gateway, and Nginx examples.')">
+          <div class="topic" onclick="copy(t.apiGateway)">
             <div class="topic-tag">Gateway</div>
             <div class="topic-name">API Gateway</div>
             <div class="topic-detail">Single entry point, auth enforcement, request routing, aggregation</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain service discovery and service mesh for system design interviews. Cover client-side vs server-side discovery, DNS-based service discovery, Consul and etcd as service registries, what a service mesh adds (mutual TLS, observability, traffic management), sidecar proxy pattern (Istio, Envoy), and when a service mesh is worth the complexity. Include a diagram of the sidecar pattern vs direct service calls.')">
+          <div class="topic" onclick="copy(t.serviceDiscovery)">
             <div class="topic-tag">Discovery</div>
             <div class="topic-name">Service Discovery & Mesh</div>
             <div class="topic-detail">Client-side vs server-side discovery, Consul, Istio, sidecar proxy</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain CQRS and Event Sourcing for system design interviews. Cover Command Query Responsibility Segregation — separate write models from read models, why this enables independent scaling, the eventual consistency between write and read sides, Event Sourcing as storing a log of events rather than current state, replaying events to rebuild state, audit logs as a free side effect, and when NOT to use these patterns (added complexity). Include real examples.')">
+          <div class="topic" onclick="copy(t.cqrs)">
             <div class="topic-tag">Patterns</div>
             <div class="topic-name">CQRS & Event Sourcing</div>
             <div class="topic-detail">Separate read/write models, audit logs, replay from event log</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain the Saga pattern for distributed transactions in microservices. Cover why two-phase commit fails at scale, choreography-based sagas (services react to events) vs orchestration-based sagas (a central coordinator), compensating transactions for rollback, how to handle partial failures, idempotency requirements, and real examples like an e-commerce order flow spanning inventory, payment, and shipping services.')">
+          <div class="topic" onclick="copy(t.saga)">
             <div class="topic-tag">Transactions</div>
             <div class="topic-name">Saga Pattern</div>
             <div class="topic-detail">Choreography vs orchestration, compensating transactions</div>
           </div>
-          <div class="topic"
-            onclick="copy('Explain observability for system design interviews: logs, metrics, and distributed traces. Cover the three pillars of observability, structured logging vs unstructured logs, metrics (counters, gauges, histograms) and alerting, distributed tracing with trace IDs and spans (Jaeger, Zipkin), how to correlate a request across 10 microservices, the ELK stack vs Datadog vs Prometheus + Grafana, and how to design for debuggability from the start.')">
+          <div class="topic" onclick="copy(t.observability)">
             <div class="topic-tag">Observability</div>
             <div class="topic-name">Observability (Logs, Metrics, Traces)</div>
             <div class="topic-detail">Distributed tracing, structured logging, dashboards, alerting</div>
@@ -296,50 +268,42 @@
         <div class="mern-note"><b>Practice tip:</b> Every question below appears regularly in 4–6 year experience
           interviews. Say your reasoning out loud as you work through each one.</div>
         <div class="topic-grid">
-          <div class="topic"
-            onclick="copy('Walk me through designing a URL shortener like bit.ly for a system design interview. Cover: functional and non-functional requirements, back-of-envelope estimation (QPS and storage), the core redirect flow, hashing strategy for generating short codes, database schema, caching hot URLs, analytics tracking, and how to scale to 100M DAU. Use interactive diagrams and include the trade-offs at each decision point.')">
+          <div class="topic" onclick="copy(t.urlShortener)">
             <div class="topic-tag">Classic</div>
             <div class="topic-name">URL Shortener</div>
             <div class="topic-detail">Hashing, redirects, analytics, high-read system</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a real-time chat system like WhatsApp for a system design interview. Cover: 1-to-1 and group messaging, WebSocket connection management, message delivery guarantees and receipts (sent/delivered/read), online presence tracking, message storage and retrieval, push notifications for offline users, and scaling to 500M DAU. Include the full architecture diagram and trade-offs.')">
+          <div class="topic" onclick="copy(t.chatSystem)">
             <div class="topic-tag">Real-time</div>
             <div class="topic-name">Chat System (WhatsApp)</div>
             <div class="topic-detail">WebSockets, message delivery receipts, presence, group chats</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a news feed like Twitter or Instagram for a system design interview. Cover: feed generation strategies (fan-out on write vs fan-out on read), the celebrity/hotspot problem, ranking and personalization, pagination and infinite scroll, media storage, notifications, and scaling to 200M DAU. Explain why Twitter uses a hybrid approach. Include interactive diagrams.')">
+          <div class="topic" onclick="copy(t.newsFeed)">
             <div class="topic-tag">Social</div>
             <div class="topic-name">News Feed (Twitter/Instagram)</div>
             <div class="topic-detail">Fanout on write vs read, ranking, celebrity problem</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a video streaming platform like YouTube for a system design interview. Cover: video upload and transcoding pipeline (multiple resolutions/codecs), chunked streaming vs progressive download, adaptive bitrate streaming (HLS/DASH), CDN strategy for global delivery, thumbnail generation, view count accuracy, search and recommendations, and scaling to 1B+ users. Include the full architecture.')">
+          <div class="topic" onclick="copy(t.videoStreaming)">
             <div class="topic-tag">Media</div>
             <div class="topic-name">Video Streaming (YouTube)</div>
             <div class="topic-detail">Chunked upload, transcoding pipeline, CDN, adaptive bitrate</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a ride-sharing system like Uber for a system design interview. Cover: real-time driver location tracking, geospatial indexing (geohash, quadtree), driver-rider matching algorithm, surge pricing, trip state machine, GPS data ingestion at scale, and the WebSocket architecture for live map updates. Explain the CAP trade-offs for location data. Include full architecture diagrams.')">
+          <div class="topic" onclick="copy(t.rideSharing)">
             <div class="topic-tag">Geospatial</div>
             <div class="topic-name">Ride Sharing (Uber)</div>
             <div class="topic-detail">Geospatial indexing, matching, surge pricing, location tracking</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a distributed cache like Redis for a system design interview. Cover: in-memory storage design, eviction policies (LRU, LFU, TTL), consistent hashing for key distribution, replication for availability, Redis Sentinel vs Redis Cluster, handling hot keys, cache warming strategies, and persistence options (RDB vs AOF). Include the trade-offs vs Memcached.')">
+          <div class="topic" onclick="copy(t.distributedCache)">
             <div class="topic-tag">Infrastructure</div>
             <div class="topic-name">Distributed Cache</div>
             <div class="topic-detail">Eviction policies, consistent hashing, replication, hot keys</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a notification system for a system design interview. Cover: multi-channel delivery (push, SMS, email, in-app), priority queues for urgent vs bulk notifications, fanout at scale (sending to millions of subscribers), retry logic and dead-letter queues, deduplication to prevent duplicate sends, user preferences and opt-outs, and rate limiting per user. Include the full async pipeline architecture.')">
+          <div class="topic" onclick="copy(t.notificationSystem)">
             <div class="topic-tag">Async</div>
             <div class="topic-name">Notification System</div>
             <div class="topic-detail">Push/SMS/email fanout, retry, priority queues, deduplication</div>
           </div>
-          <div class="topic"
-            onclick="copy('Walk me through designing a search autocomplete system for a system design interview. Cover: trie vs prefix hash for storing suggestions, top-k results with frequency ranking, how to update the trie with real-time query data, caching popular prefixes in Redis, handling typos and fuzzy matching, multi-language support, and scaling to 10M queries/day. Include time and space complexity analysis.')">
+          <div class="topic" onclick="copy(t.searchAutocomplete)">
             <div class="topic-tag">Search</div>
             <div class="topic-name">Search Autocomplete</div>
             <div class="topic-detail">Trie vs prefix indexing, top-k, frequency ranking, caching</div>
@@ -351,6 +315,90 @@
   </div>
 
   <div id="toast"><span class="check">✓</span><span id="toast-text">Prompt copied</span></div>
+
+  <script>
+    // ─── Topic prompt strings ────────────────────────────────────────────────
+    const t = {
+
+      // Phase 1 — Core Concepts & Fundamentals
+      clientServer: "Explain Client-Server Architecture for system design interviews. Cover: request-response model, stateless vs stateful servers, N-tier patterns (2-tier, 3-tier, N-tier), and how roles like client/server are relative not fixed. Include interactive diagrams showing the full HTTP request lifecycle with DNS, TCP, and DB query steps. Add interview tips for each step.",
+
+      networkingBasics: "Explain networking fundamentals for system design interviews: HTTP, TCP, DNS, CDN. Cover HTTP methods and status codes, HTTP/1.1 vs HTTP/2 vs HTTP/3, the TCP 3-way handshake, TCP vs UDP trade-offs, the full DNS resolution chain with TTL and GeoDNS, and CDN cache hit vs miss flows with push vs pull models. Include interactive diagrams and interview tips.",
+
+      apiDesign: "Explain REST vs GraphQL vs gRPC for system design interviews. For each: when to use it, core trade-offs, real-world examples, and failure modes. Cover REST over/under-fetching, GraphQL N+1 and caching problems, gRPC Protobuf and streaming modes. End with a decision framework and the senior-level answer that uses all three in one system.",
+
+      scalability: "Explain scalability fundamentals for system design interviews: vertical vs horizontal scaling. Cover the four bottleneck layers (CPU, memory, I/O, network), when to use vertical vs horizontal, stateless app servers, auto-scaling, CDN offloading, read replicas, caching, and async job queues. Include an interactive calculator and worked scenarios showing when each approach makes sense.",
+
+      capTheorem: "Explain CAP theorem and ACID vs BASE for system design interviews. Cover what Consistency, Availability, and Partition Tolerance actually mean, why CA is impossible in distributed systems, CP vs AP real-world databases, ACID properties with a bank transfer example, BASE properties with an eventual consistency example, and tunable consistency with the W+R>N formula. Include an interactive quorum simulator.",
+
+      estimation: "Explain back-of-envelope estimation for system design interviews. Cover the essential numbers to memorize (seconds per day ~100K, storage sizes, latency numbers, traffic rules), the 4-step estimation framework (assumptions → QPS → storage → infrastructure), and work through three complete examples: URL shortener, Twitter feed, and WhatsApp messages. Include an interactive calculator with presets.",
+
+      // Phase 2 — Databases & Storage
+      sqlVsNoSql: "Explain SQL vs NoSQL databases for system design interviews: when to use which. Cover relational vs document vs key-value vs wide-column vs graph databases, the trade-offs in schema flexibility, scaling, and consistency, and give clear decision rules. Explain all four NoSQL types with real examples (Redis, MongoDB, Cassandra, Neo4j). Include a decision framework for choosing between them.",
+
+      indexingSharding: "Explain database indexing, sharding, and partitioning for system design interviews. Cover B-tree indexes, composite indexes and the left-prefix rule, covering indexes, partial indexes, write cost trade-offs, range vs hash vs list partitioning with partition pruning, and sharding strategies (range, hash, directory, consistent hashing). Explain the hard problems: cross-shard joins, global IDs, resharding. Include the decision ladder from indexes to sharding.",
+
+      replication: "Explain database replication strategies for system design interviews. Cover leader-follower (primary-replica) replication with synchronous vs asynchronous modes, replication lag and read-your-own-writes consistency, multi-leader replication with conflict resolution, leaderless replication with quorum reads and writes, and failover strategies. Include real systems: PostgreSQL streaming replication, MySQL binlog, Cassandra multi-master.",
+
+      cachingLayer: "Explain the caching layer for system design interviews: Redis, Memcached, and cache strategies. Cover cache-aside, write-through, write-behind, and read-through patterns, TTL and eviction policies (LRU, LFU), cache invalidation strategies, cache stampede and how to prevent it, Redis data structures and use cases, and how to size a cache. Include the connection to reducing DB load and the 80/20 hot data rule.",
+
+      blobStorage: "Explain blob and object storage in system design interviews. Cover S3-style object stores vs file systems vs block storage, when to use each, how CDN integrates with object storage for media serving, pre-signed URLs for secure direct uploads, multipart upload for large files, and storage tiers (hot, warm, cold, archive). Give real examples: user profile photos, video files, backups, static assets.",
+
+      oltpVsOlap: "Explain OLTP vs OLAP for system design interviews. Cover transactional vs analytical workloads, why they need different database designs (row-oriented vs column-oriented storage), data warehouses (Snowflake, BigQuery, Redshift), the ETL/ELT pipeline, materialized views, and when to build a separate analytics system vs query the primary DB. Include the Lambda and Kappa architecture patterns.",
+
+      // Phase 3 — Reliability & Performance
+      loadBalancers: "Explain load balancers for system design interviews. Cover L4 vs L7 load balancing, load balancing algorithms (round-robin, least-connections, IP hash, weighted), sticky sessions and why they are a problem, health checks and automatic failover, the difference between hardware and software load balancers, and how to use consistent hashing for session-aware routing. Include Nginx, HAProxy, and AWS ALB/NLB examples.",
+
+      rateLimiting: "Explain rate limiting for system design interviews. Cover token bucket, leaky bucket, fixed window counter, and sliding window log algorithms with their trade-offs, where to implement rate limiting (client, gateway, service), distributed rate limiting with Redis, rate limit headers and 429 responses, and how to handle rate limit bypass attempts. Include a visual comparison of all four algorithms.",
+
+      circuitBreaker: "Explain circuit breaker, retry, and fallback patterns for system design interviews. Cover the three circuit breaker states (closed, open, half-open), exponential backoff with jitter for retries, the bulkhead pattern for isolating failures, timeout strategies, the difference between fail-fast and fail-safe, and how these patterns compose together. Give real examples with Hystrix, Resilience4j, and custom implementations.",
+
+      cdnEdge: "Explain CDN and edge caching deeply for system design interviews. Cover how CDN Points of Presence work, push vs pull CDN models, cache-control headers and TTL, ETags and conditional requests (304 Not Modified), cache invalidation vs cache busting with content-hashed filenames, CDN failover, and how to design a frontend deployment strategy that maximizes cache efficiency. Include Cloudflare, CloudFront, and Fastly examples.",
+
+      availability: "Explain availability patterns for system design interviews. Cover SLA/SLO/SLI definitions and how to calculate nines (99.9% = 8.7 hrs downtime/year), active-passive vs active-active failover, redundancy at every tier, chaos engineering principles, graceful degradation vs hard failure, and how to design for partial availability. Include the math for calculating composite system availability from component SLAs.",
+
+      consistentHashing: "Explain consistent hashing for system design interviews. Cover why simple modulo hashing breaks when adding nodes (the rehashing problem), how the hash ring works, virtual nodes (vnodes) and why they are needed for even distribution, the mechanics of node addition and removal with minimal data movement, and real systems that use it: Cassandra, DynamoDB, Memcached, load balancers. Include an interactive ring visualization.",
+
+      // Phase 4 — Asynchronous Systems & Communication
+      messageQueues: "Explain message queues for system design interviews: Kafka vs RabbitMQ vs SQS. Cover the producer-consumer model, at-least-once vs exactly-once vs at-most-once delivery semantics, message ordering guarantees, dead-letter queues, consumer groups and parallel processing, backpressure handling, and when to use each system. Include Kafka partitions and offsets, RabbitMQ exchanges, and SQS FIFO vs standard queues.",
+
+      pubSub: "Explain pub/sub and event streaming for system design interviews. Cover the difference between message queues and pub/sub, topics and subscriptions, fan-out patterns, event sourcing (storing events as the source of truth), event-driven architecture benefits and trade-offs, Kafka as an event log, and how to design systems that react to events rather than poll for state. Include real examples: order processing, notifications, audit logs.",
+
+      backgroundJobs: "Explain background jobs and worker systems for system design interviews. Cover job queue patterns, idempotent job design (so retries are safe), dead-letter queues for failed jobs, cron scheduling, priority queues, job deduplication, and how to scale workers horizontally based on queue depth. Give real examples: email sending, image resizing, report generation, payment processing. Include Redis-based queues (BullMQ) and cloud options (SQS + Lambda).",
+
+      pushVsPull: "Explain push vs pull communication patterns for system design interviews: webhooks, polling, WebSockets, and Server-Sent Events. Cover the trade-offs of each (latency, resource usage, complexity), when to use WebSockets vs SSE vs long-polling, webhook reliability (retries, signature verification, idempotency), and how to design a real-time notification system. Include a comparison diagram and decision framework.",
+
+      // Phase 5 — Microservices & Architecture Patterns
+      monolithVsMicro: "Explain monolith vs microservices for system design interviews. Cover when a monolith is the right choice (early stage, small team, unclear domain boundaries), the strangler fig pattern for decomposing a monolith, microservice trade-offs (network latency, distributed transactions, operational complexity), service boundaries and domain-driven design, and the most common mistake of premature microservices. Be honest about the costs.",
+
+      apiGateway: "Explain the API Gateway pattern for system design interviews. Cover the gateway as a single entry point, responsibilities it should own (auth enforcement, rate limiting, request routing, SSL termination, logging), the aggregation pattern for combining multiple service calls, BFF (Backend for Frontend) pattern, and when a gateway becomes a bottleneck. Include Kong, AWS API Gateway, and Nginx examples.",
+
+      serviceDiscovery: "Explain service discovery and service mesh for system design interviews. Cover client-side vs server-side discovery, DNS-based service discovery, Consul and etcd as service registries, what a service mesh adds (mutual TLS, observability, traffic management), sidecar proxy pattern (Istio, Envoy), and when a service mesh is worth the complexity. Include a diagram of the sidecar pattern vs direct service calls.",
+
+      cqrs: "Explain CQRS and Event Sourcing for system design interviews. Cover Command Query Responsibility Segregation — separate write models from read models, why this enables independent scaling, the eventual consistency between write and read sides, Event Sourcing as storing a log of events rather than current state, replaying events to rebuild state, audit logs as a free side effect, and when NOT to use these patterns (added complexity). Include real examples.",
+
+      saga: "Explain the Saga pattern for distributed transactions in microservices. Cover why two-phase commit fails at scale, choreography-based sagas (services react to events) vs orchestration-based sagas (a central coordinator), compensating transactions for rollback, how to handle partial failures, idempotency requirements, and real examples like an e-commerce order flow spanning inventory, payment, and shipping services.",
+
+      observability: "Explain observability for system design interviews: logs, metrics, and distributed traces. Cover the three pillars of observability, structured logging vs unstructured logs, metrics (counters, gauges, histograms) and alerting, distributed tracing with trace IDs and spans (Jaeger, Zipkin), how to correlate a request across 10 microservices, the ELK stack vs Datadog vs Prometheus + Grafana, and how to design for debuggability from the start.",
+
+      // Phase 6 — Classic Interview Design Questions
+      urlShortener: "Walk me through designing a URL shortener like bit.ly for a system design interview. Cover: functional and non-functional requirements, back-of-envelope estimation (QPS and storage), the core redirect flow, hashing strategy for generating short codes, database schema, caching hot URLs, analytics tracking, and how to scale to 100M DAU. Use interactive diagrams and include the trade-offs at each decision point.",
+
+      chatSystem: "Walk me through designing a real-time chat system like WhatsApp for a system design interview. Cover: 1-to-1 and group messaging, WebSocket connection management, message delivery guarantees and receipts (sent/delivered/read), online presence tracking, message storage and retrieval, push notifications for offline users, and scaling to 500M DAU. Include the full architecture diagram and trade-offs.",
+
+      newsFeed: "Walk me through designing a news feed like Twitter or Instagram for a system design interview. Cover: feed generation strategies (fan-out on write vs fan-out on read), the celebrity/hotspot problem, ranking and personalization, pagination and infinite scroll, media storage, notifications, and scaling to 200M DAU. Explain why Twitter uses a hybrid approach. Include interactive diagrams.",
+
+      videoStreaming: "Walk me through designing a video streaming platform like YouTube for a system design interview. Cover: video upload and transcoding pipeline (multiple resolutions/codecs), chunked streaming vs progressive download, adaptive bitrate streaming (HLS/DASH), CDN strategy for global delivery, thumbnail generation, view count accuracy, search and recommendations, and scaling to 1B+ users. Include the full architecture.",
+
+      rideSharing: "Walk me through designing a ride-sharing system like Uber for a system design interview. Cover: real-time driver location tracking, geospatial indexing (geohash, quadtree), driver-rider matching algorithm, surge pricing, trip state machine, GPS data ingestion at scale, and the WebSocket architecture for live map updates. Explain the CAP trade-offs for location data. Include full architecture diagrams.",
+
+      distributedCache: "Walk me through designing a distributed cache like Redis for a system design interview. Cover: in-memory storage design, eviction policies (LRU, LFU, TTL), consistent hashing for key distribution, replication for availability, Redis Sentinel vs Redis Cluster, handling hot keys, cache warming strategies, and persistence options (RDB vs AOF). Include the trade-offs vs Memcached.",
+
+      notificationSystem: "Walk me through designing a notification system for a system design interview. Cover: multi-channel delivery (push, SMS, email, in-app), priority queues for urgent vs bulk notifications, fanout at scale (sending to millions of subscribers), retry logic and dead-letter queues, deduplication to prevent duplicate sends, user preferences and opt-outs, and rate limiting per user. Include the full async pipeline architecture.",
+
+      searchAutocomplete: "Walk me through designing a search autocomplete system for a system design interview. Cover: trie vs prefix hash for storing suggestions, top-k results with frequency ranking, how to update the trie with real-time query data, caching popular prefixes in Redis, handling typos and fuzzy matching, multi-language support, and scaling to 10M queries/day. Include time and space complexity analysis.",
+    };
+  </script>
 
   <script src="../shared/app.js"></script>
 </body>
